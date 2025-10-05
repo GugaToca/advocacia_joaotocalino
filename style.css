@@ -192,6 +192,7 @@ body {
     flex-direction: column;
     height: auto;
     padding: 15px 20px;
+    overscroll-behavior-y: contain; /* bloqueia rolagem extra no fim */
   }
 
   /* Esconde o menu tradicional */
@@ -236,3 +237,4 @@ body {
   align-items: center;
   z-index: 9999;
 }
+
