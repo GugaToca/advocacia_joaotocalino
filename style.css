@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f4f4;
+  color: #400002;
+}
+
+/* NAVBAR */
+.navbar {
+  height: 150px; /* altura fixa do cabeçalho */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px; /* remove o padding vertical que empurra */
+  background-color: #400002;
+}
+
+.logo img {
+  transform: scale(0.5);
+  transform-origin: center;
+  margin-left: -100px; /* move um pouco pra fora */
+}
+
+/* MENU DESKTOP */
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #705858;
+}
+
+/* BOTÃO HAMBURGUER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+/* MENU MOBILE */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: #400002;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 15px 0;
+}
+
+.mobile-nav a {
+  color: white;
+  text-decoration: none;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.mobile-nav.show {
+  display: flex;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(58, 3, 3, 0.7), rgba(90, 3, 3, 0.8)),
+    url('https://images.unsplash.com/photo-1555374018-13a8994ab246?auto=format&fit=crop&w=1500&q=80')
+      center/cover no-repeat;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-family: 'Merriweather', serif;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.btn {
+  background-color: #22a6f2;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #1b8dd2;
+}
+
+/* SEÇÕES */
+.sobre,
+.areas,
+.footer {
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.sobre p {
+  max-width: 800px;
+  margin: 20px auto;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+/* FOOTER */
+.footer {
+  background-color: #400002;
+  color: white;
+}
+
+.footer p {
+  margin: 8px 0;
+}
+
+/* --- RESPONSIVIDADE --- */
+
+/* TABLETS */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .logo img {
+    margin: 0 auto 10px;
+  }
+
+  .navbar ul {
+    justify-content: center;
+  }
+}
+
+/* CELULARES */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 20px;
+  }
+
+  /* Esconde o menu tradicional */
+  .navbar nav ul {
+    display: none !important;
+  }
+
+  /* Exibe o botão hamburguer */
+  .hamburger {
+    display: flex;
+    position: absolute;
+    top: 80px;       /* fixa no topo */
+    right: 25px;     /* encosta na lateral direita */
+    transform: none; /* remove a centralização anterior */
+    z-index: 1000;   /* garante que fique acima da logo */
+  }
+
+  /* Centraliza a logo */
+  .logo {
+    text-align: center;
+    width: 100%;
+  }
+
+  .logo img {
+    margin: 0 auto;
+    height: 150px; /* mesmo estilo do desktop */
+    transform: none;
+    transform: scale(1.5);
+    transform-origin: center;
+  }
+}
+
+/* força o menu mobile a aparecer corretamente quando aberto */
+.mobile-nav.show {
+  display: flex !important;
+  position: absolute;
+  top: 150px; /* logo abaixo do cabeçalho */
+  left: 0;
+  width: 100%;
+  background-color: #400002;
+  flex-direction: column;
+  align-items: center;
+  z-index: 9999;
+}
